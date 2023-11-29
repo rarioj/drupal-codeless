@@ -1,0 +1,55 @@
+# Drupal Codeless
+# @ https://github.com/rarioj/drupal-codeless
+# ~ A "config only with no custom theme and modules" Drupal distribution.
+# > Tested on Lando v3.20.4
+
+name: drupal-codeless
+recipe: drupal10
+# Disable "a lot of keys" warning.
+keys: false
+config:
+  php: "8.1"
+  via: apache
+  # Comment out @composer_version to use recipe's default.
+  #composer_version: "2.1.14"
+  # Pick a @webroot directory (Acquia uses 'docroot').
+  webroot: web
+  #webroot: docroot
+  # Pick a @database engine.
+  database: mariadb
+  #database: mysql
+tooling:
+  composer:
+    description: ~ Runs Composer https://getcomposer.org/doc/03-cli.md
+    service: appserver
+    cmd: php -d memory_limit=-1 /usr/local/bin/composer
+  drush:
+    description: ~ Runs Drush https://www.drush.org/12.x/commands/all/
+    service: appserver
+    cmd: php /app/vendor/drush/drush/drush
+  snapshot:
+    description: ~ Creates a project snapshot - lando snapshot [name]
+    service: appserver
+    cmd: /app/.project/scripts/execute_action.sh create-snapshot
+services:
+  appserver:
+    overrides:
+      # Default values are provided. Only adjust if needed.
+      environment:
+        #PROJECT_NAME: Drupal Codeless
+        #PROJECT_ADMIN_MAIL: admin@example.com
+        #PROJECT_ADMIN_NAME: admin
+        #PROJECT_ADMIN_PASS: password
+        #PROJECT_DATABASE: mysql://drupal10:drupal10@database/drupal10
+        # A value other than '0' will reset the config hash and UUID (recommended).
+        PROJECT_CONFIG_RESET: 1
+        #PROJECT_MINIMUM_STABILITY: alpha
+        #PROJECT_VERSION_NODEJS: 20
+    build_as_root:
+      - if [ ! -d /app/.project ]; then git clone https://github.com/rarioj/drupal-codeless.git .project && chown www-data:www-data .project && chown -R www-data:www-data .project/snapshots; fi; /app/.project/scripts/execute_action.sh appserver-build_as_root
+    build:
+      - /app/.project/scripts/execute_action.sh appserver-build
+    run_as_root:
+      - /app/.project/scripts/execute_action.sh appserver-run_as_root
+    run:
+      - /app/.project/scripts/execute_action.sh appserver-run
