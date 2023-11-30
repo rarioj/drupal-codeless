@@ -1,0 +1,17 @@
+uuid: c76ecc24-2e1d-4434-9554-9d64afba46f4
+langcode: en
+status: true
+dependencies: {  }
+id: site_settings
+label: 'Site settings'
+token: true
+context:
+  show_warning: true
+  group:
+    language: false
+  fallback:
+    language: ''
+menu:
+  path: /admin/content/site-settings
+  weight: 50
+  description: ''

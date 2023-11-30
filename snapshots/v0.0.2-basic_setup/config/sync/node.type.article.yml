@@ -1,0 +1,23 @@
+uuid: 84b6f949-232d-4420-ace1-3deb157d3285
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+    - node_title_help_text
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+  node_title_help_text:
+    title_help: "Apart from being used as the node title, this field renders the text in the title bar of a visitor's web browser when they view this page. It may also be used as the page title when a visitor bookmarks this page or as the page title in a search engine result. We recommend that the title is no greater than 55 - 65 characters long, including spaces."
+_core:
+  default_config_hash: AeW1SEDgb1OTQACAWGhzvMknMYAJlcZu0jljfeU3oso
+name: Article
+type: article
+description: 'Use <em>articles</em> for time-sensitive content like news, press releases or blog posts.'
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: true

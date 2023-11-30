@@ -1,0 +1,17 @@
+uuid: 66bc907c-525f-458d-99b9-bb800b2c6d28
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: focal_point_landscape_16_9
+label: 'Focal point - Landscape 16:9'
+effects:
+  2215fcb6-0430-4377-a9e7-0822fa43aa72:
+    uuid: 2215fcb6-0430-4377-a9e7-0822fa43aa72
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 1600
+      height: 900
+      crop_type: focal_point

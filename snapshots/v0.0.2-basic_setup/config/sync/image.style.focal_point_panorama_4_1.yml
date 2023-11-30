@@ -1,0 +1,17 @@
+uuid: 022bc03a-806f-43de-ba6a-41b63f68ba49
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: focal_point_panorama_4_1
+label: 'Focal point - Panorama 4:1'
+effects:
+  f5f22b14-1432-4a94-8564-1381d5ecb801:
+    uuid: f5f22b14-1432-4a94-8564-1381d5ecb801
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 1600
+      height: 400
+      crop_type: focal_point

@@ -1,0 +1,17 @@
+uuid: 976a2f95-e6d2-46db-bab3-d175374b0cf9
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: focal_point_portrait_9_16
+label: 'Focal point - Portrait 9:16'
+effects:
+  4924f13f-ebad-4198-a560-52fc6564fd50:
+    uuid: 4924f13f-ebad-4198-a560-52fc6564fd50
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 900
+      height: 1600
+      crop_type: focal_point

@@ -1,0 +1,8 @@
+uuid: f42f3100-0ecb-412f-8d0f-04233ca3ec6f
+langcode: en
+status: true
+dependencies: {  }
+name: 'Media directories'
+vid: media_directories
+description: 'Use media directories to help organise all media assets.'
+weight: 0
