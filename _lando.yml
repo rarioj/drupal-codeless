@@ -31,6 +31,15 @@ tooling:
     description: ~ Creates a project snapshot - lando snapshot [name]
     service: appserver
     cmd: /app/.project/scripts/execute_action.sh create-snapshot
+# "It is potentially insecure to display oEmbed content in a frame that is
+# served from the same domain as your main Drupal site, as this may allow
+# execution of third-party code." - Status report warning
+# @ https://www.drupal.org/project/drupal/issues/2965979
+# > Set the oembed sub-domain on "Configuration > Media > Media settings"
+proxy:
+  appserver:
+    - drupal-codeless.lndo.site
+    - oembed.drupal-codeless.lndo.site
 services:
   appserver:
     overrides:

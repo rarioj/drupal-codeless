@@ -29,3 +29,6 @@ if [ "${_PROJECT_PHASE_INSTALL_DRUPAL}" = "new" ]; then
 		${_PROJECT_CMD_DRUSH} php:eval -y '\Drupal::entityTypeManager()->getStorage("shortcut_set")->load("default")->delete();' &&
 		${_PROJECT_CMD_DRUSH} pm:uninstall -y shortcut
 fi
+
+echo "(!!!) Adding oembed sub-domain for media settings iFrame" &&
+	${_PROJECT_CMD_DRUSH} config:set -y media.settings iframe_domain "https://oembed.${LANDO_APP_NAME}.lndo.site/"

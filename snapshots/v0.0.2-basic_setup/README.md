@@ -12,12 +12,13 @@ In alphabetical order:
 - Installed [Config Ignore](https://www.drupal.org/project/config_ignore) module.
 - Installed [Config Pages](https://www.drupal.org/project/config_pages) module.
 - Installed [Conflict](https://www.drupal.org/project/conflict) module.
-- Installed [Devel](https://www.drupal.org/project/devel) module (in *require-dev*).
+- Installed [Devel](https://www.drupal.org/project/devel) module (in *require-dev*, for later use).
 - Installed [Diff](https://www.drupal.org/project/diff) module.
 - Installed [Entity Browser Block](https://www.drupal.org/project/entity_browser_block) module (for later use).
 - Installed [Field Group](https://www.drupal.org/project/field_group) module (for later use).
 - Installed [Flood control](https://www.drupal.org/project/flood_control) module.
 - Installed [Focal Point](https://www.drupal.org/project/focal_point) module.
+- Installed [Honeypot](https://www.drupal.org/project/honeypot) module.
 - Installed [Inline Entity Form](https://www.drupal.org/project/inline_entity_form) module (for later use).
 - Installed [Login Email or Username](https://www.drupal.org/project/login_emailusername) module.
 - Installed [Media Directories](https://www.drupal.org/project/media_directories) module.
@@ -29,21 +30,23 @@ In alphabetical order:
 - Installed [Rebuild Cache Access](https://www.drupal.org/project/rebuild_cache_access) module.
 - Installed [Reroute Email](https://www.drupal.org/project/reroute_email) module.
 - Installed [Search API](https://www.drupal.org/project/search_api) module.
+- Installed [Security Kit](https://www.drupal.org/project/seckit) module.
+- Installed [Sessionless BigPipe](https://www.drupal.org/project/big_pipe_sessionless) module.
 - Installed [Simple XML sitemap](https://www.drupal.org/project/simple_sitemap) module.
+- Installed [Site Alert](https://www.drupal.org/project/site_alert) module (for later use).
 - Installed [SVG Image Field](https://www.drupal.org/project/svg_image_field) module.
 - Installed [Token OR](https://www.drupal.org/project/token_or) module.
+- Installed [Username Enumeration Prevention](https://www.drupal.org/project/username_enumeration_prevention) module.
 - Installed [Webform](https://www.drupal.org/project/webform) module.
 
-#### Config page: *Site settings*
+#### Config page
 
-- Added *Default share image* field.
+- Added new config page *Site settings*.
+  - Added *Default share image* field.
 
 #### Taxonomy
 
-- Added vocabulary *Media directories* to organise media assets.
-
-#### Image styles
-- Added new *focal point* based image styles: *Landscape 16:9*, *Portrait 9:16*, *Square 1:1*, and *Panorama 4:1*.
+- Added vocabulary *Media directories* to help organising media assets.
 
 #### Media
 - Adjusted *Media > __all__* form display and manage display settings (need to revisit).
@@ -58,17 +61,15 @@ In alphabetical order:
 - Adjusted *Article* and *Basic page* manage display settings (need to revisit).
 
 #### Configuration
-- Enabled *Workflows: Editorial - Content moderation* to *Article* and *Basic page*.
-- Added *Pathauto pattern* alias for *Article* and *Basic page*.
-- Adjusted default *meta tags* for *Content*.
-- Added new date and time formats: *Standard - Date*, *Standard - Time*, and *Standard - Date Time*.
-- Adjusted Simple XML Sitemap inclusion settings to include *Article* and *Basic page*.
-- Adjusted *Full HTML* text formats and editors to be the first picked-up by the CKEditor.
-  - Adjusted the Full HTML *embed media* settings.
-- Used *Search API database defaults* module configuration.
-- Adjusted *Config ignore* module to ignore *Reroute email* config.
-
-### TODO
-
-- *Webform* configuration.
-- More detailed *Search API* configuration.
+- (Media > Image styles) Added new image styles based on *Focal point scale and crop*: *Landscape 16:9*, *Portrait 9:16*, *Square 1:1*, and *Panorama 4:1*.
+- (Workflow > Workflows) Enabled *Content moderation* workflow to *Article* and *Basic page*.
+- (Search and metadata > URL aliases > Patterns) Added *Pathauto* pattern aliases for *Article* and *Basic page*.
+- (Search and metadata > Metatag) Adjusted default *metatag default* for *Content*.
+- (Region and language > Date and time formats) Added new formats: *Standard - Date*, *Standard - Time*, and *Standard - Date Time*.
+- (Search and metadata > Simple XML Sitemap > Inclusion) Adjusted *Content* settings to include *Article* and *Basic page*.
+- (Content authoring > Text formats and editors) Adjusted *Full HTML* text formats and editors to be the first picked-up by the CKEditor.
+  - Enabled *Embed media* settings on the *Full HTML* format.
+- (Search and metadata > Search API) Used Search API *Database Search Defaults* module (need to revisit).
+- (Development > Configuration synchronization > Ignore) Adjusted settings to ignore *media.settings* and *reroute_email.settings* config.
+- (System > Security Kit settings) Adjusted settings:
+  - Set CSP `frame-ancestors` to allow lando sub-domains (fixed media oembed warning).

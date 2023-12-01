@@ -24,6 +24,7 @@ if [ ! -f "${LANDO_WEBROOT}/sites/default/settings.php" ]; then
 		cp "${LANDO_WEBROOT}/sites/default/default.settings.php" "${LANDO_WEBROOT}/sites/default/settings.php" &&
 			echo >>"${LANDO_WEBROOT}/sites/default/settings.php" &&
 			echo "\$settings['trusted_host_patterns'][] = '^${LANDO_APP_NAME}\.lndo\.site';" >>"${LANDO_WEBROOT}/sites/default/settings.php" &&
+			echo "\$settings['trusted_host_patterns'][] = '^oembed\.${LANDO_APP_NAME}\.lndo\.site';" >>"${LANDO_WEBROOT}/sites/default/settings.php" &&
 			echo >>"${LANDO_WEBROOT}/sites/default/settings.php"
 	fi
 else
