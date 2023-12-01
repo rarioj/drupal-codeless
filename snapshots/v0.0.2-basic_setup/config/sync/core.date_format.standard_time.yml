@@ -1,0 +1,8 @@
+uuid: d3c7821d-ebff-48f0-80be-dca1f9396975
+langcode: en
+status: true
+dependencies: {  }
+id: standard_time
+label: 'Standard - Time'
+locked: false
+pattern: 'g:i a'

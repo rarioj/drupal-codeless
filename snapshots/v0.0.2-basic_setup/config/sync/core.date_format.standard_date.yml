@@ -1,0 +1,8 @@
+uuid: 5d758251-bcb0-490a-a10c-5f86e8e848f3
+langcode: en
+status: true
+dependencies: {  }
+id: standard_date
+label: 'Standard - Date'
+locked: false
+pattern: 'l, j F Y'

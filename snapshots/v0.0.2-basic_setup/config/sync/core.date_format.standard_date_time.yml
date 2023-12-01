@@ -1,0 +1,8 @@
+uuid: 47162c30-b471-46bb-8e26-4eb3ea07adc8
+langcode: en
+status: true
+dependencies: {  }
+id: standard_date_time
+label: 'Standard - Date Time'
+locked: false
+pattern: 'l, j F Y, g:i a'
