@@ -64,7 +64,7 @@ if [ ! -d "config/sync" ]; then
 				rm -rf "config/temp"
 				mkdir -p "config/temp"
 			fi
-			php /app/.project/tools/config-reset.php &&
+			php "${LANDO_MOUNT}/.project/tools/config-reset.php" &&
 				rm -rf "config/temp"
 		fi
 	fi
@@ -74,9 +74,9 @@ if [ "${_PROJECT_PHASE_INSTALL_DRUPAL}" = "installed" ]; then
 	echo "_PROJECT_PHASE_INSTALL_DRUPAL=installed" >>.phase.env
 elif [ -d "config/sync" ] && [ -n "$(ls "config/sync")" ] && [ -f "${LANDO_WEBROOT}/sites/default/settings.php" ]; then
 	echo "(!!!) Running Drupal site:install with existing config." &&
-		php /app/.project/tools/edit-yml.php config/sync/core.extension.yml "profile ### minimal" &&
-		php /app/.project/tools/edit-yml.php config/sync/core.extension.yml "module ### minimal ### 1000" &&
-		php /app/.project/tools/edit-yml.php config/sync/core.extension.yml "module ### standard ### NULL" &&
+		php "${LANDO_MOUNT}/.project/tools/edit-yml.php" "config/sync/core.extension.yml" "profile ### minimal" &&
+		php "${LANDO_MOUNT}/.project/tools/edit-yml.php" "config/sync/core.extension.yml" "module ### minimal ### 1000" &&
+		php "${LANDO_MOUNT}/.project/tools/edit-yml.php" "config/sync/core.extension.yml" "module ### standard ### NULL" &&
 		${_PROJECT_CMD_DRUSH} site:install -y --existing-config --db-url="${PROJECT_DATABASE}" --account-mail="${PROJECT_ADMIN_MAIL}" --account-name="${PROJECT_ADMIN_NAME}" --account-pass="${PROJECT_ADMIN_PASS}"
 	echo "_PROJECT_PHASE_INSTALL_DRUPAL=existing" >>.phase.env
 else
